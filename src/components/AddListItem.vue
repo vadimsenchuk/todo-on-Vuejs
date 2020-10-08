@@ -1,16 +1,21 @@
 <template>
   <form @submit.prevent="addItem">
     <input type="text" placeholder="Введите задачу" v-model="title" />
-    <input type="submit" value="Создать" class="btn btn-primary" :disabled="!validate" />
+    <input
+      type="submit"
+      value="Создать"
+      class="btn btn-primary"
+      :disabled="!validate"
+    />
   </form>
 </template>
 
 <script>
 export default {
-  name: "AddListItem",
+  name: 'AddListItem',
   data() {
     return {
-      title: ""
+      title: ''
     };
   },
   computed: {
@@ -26,8 +31,8 @@ export default {
         id: Date.now()
       };
 
-      this.$emit("add-item", newItem);
-      this.title = "";
+      this.$emit('add-item', newItem);
+      this.title = '';
     }
   }
 };
@@ -39,12 +44,7 @@ form {
   justify-content: center;
   align-items: center;
 }
-input[type="text"] {
+input[type='text'] {
   padding: 10px;
-}
-.btn-primary {
-  background-color: dodgerblue;
-  font-size: 1.2em;
-  margin-left: 15px;
 }
 </style>
