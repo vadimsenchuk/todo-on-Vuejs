@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
+
 export default {
   name: 'AddListItem',
   data() {
@@ -20,10 +22,11 @@ export default {
   },
   computed: {
     validate() {
-      return !!this.title.trim();
+      return this.title.trim();
     }
   },
   methods: {
+    ...mapActions(['addTodo']),
     addItem() {
       const newItem = {
         title: this.title,
@@ -31,7 +34,7 @@ export default {
         id: Date.now()
       };
 
-      this.$emit('add-item', newItem);
+      this.addTodo(newItem);
       this.title = '';
     }
   }

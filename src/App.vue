@@ -12,6 +12,9 @@ export default {
   name: 'App',
   components: {
     Header
+  },
+  created() {
+    this.$store.dispatch("setTodos")
   }
 };
 </script>
@@ -46,13 +49,6 @@ export default {
 }
 .btn:hover {
   opacity: 0.8;
-}
-.btn-success {
-  background-color: green;
-  margin-right: 10px;
-}
-.btn-warn {
-  background-color: red;
 }
 .btn-primary {
   background-color: dodgerblue;

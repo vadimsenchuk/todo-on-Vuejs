@@ -6,26 +6,21 @@
       }}</router-link>
     </span>
     <div class="btn-group">
-      <button
-        type="button"
-        class="btn btn-success"
-        @click="$emit('toggle-complete', todo.id)"
-      >
-        &#10004;
-      </button>
-      <button
-        type="button"
-        class="btn btn-warn"
-        @click="$emit('remove-todo', todo.id)"
-      >
-        &times;
-      </button>
+      <ButtonComplete :id="todo.id" />
+      <ButtonDelete :id="todo.id" />
     </div>
   </li>
 </template>
 
 <script>
+import ButtonComplete from '@/components/ButtonComplete'
+import ButtonDelete from '@/components/ButtonDelete'
+
 export default {
+  components: {
+    ButtonComplete,
+    ButtonDelete
+  },
   name: 'TodoListItem',
   props: {
     todo: Object

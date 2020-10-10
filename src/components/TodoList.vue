@@ -5,8 +5,6 @@
       v-for="todo in todos"
       :key="todo.id"
       :todo="todo"
-      @remove-todo="$emit('remove-todo', todo.id)"
-      @toggle-complete="$emit('toggle-complete', todo.id)"
     />
   </ul>
 </template>
